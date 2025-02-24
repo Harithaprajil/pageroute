@@ -12,7 +12,7 @@ export default function Productcard(props: any) {
           <div>
             {prod?.Image?.map((image: any, index: any) => (
               <img
-                src={"https://secure-creativity-35fee2e16d.strapiapp.com" + image.formats?.thumbnail.url}
+                src={image.formats?.thumbnail.url}
                 key={index}
                 height="250px"
                 width="150px"

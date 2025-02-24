@@ -1,10 +1,20 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
+  "/AboutUs": "pages/AboutUs.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/Products": "pages/Products.js",
-  "/Products/[ProductId]": "pages/Products/[ProductId].js",
   "/Cart": "pages/Cart.js",
-  "/ContactUs": "pages/ContactUs.js"
+  "/Context/CartContext": "pages/Context/CartContext.js",
+  "/ContactUs": "pages/ContactUs.js",
+  "/api/product": "pages/api/product.js",
+  "/Services/Product service": "pages/Services/Product service.js",
+  "/api/products/[documentId]": "pages/api/products/[documentId].js",
+  "/components/GoToCartButton": "pages/components/GoToCartButton.js",
+  "/components/Product-Filter/ProductFilter": "pages/components/Product-Filter/ProductFilter.js",
+  "/components/Header": "pages/components/Header.js",
+  "/components/Product-Card/Productcard": "pages/components/Product-Card/Productcard.js",
+  "/components/layout": "pages/components/layout.js",
+  "/": "pages/index.js",
+  "/_error": "pages/_error.js",
+  "/Products": "pages/Products.js",
+  "/Products/[ProductId]": "pages/Products/[ProductId].js"
 }
