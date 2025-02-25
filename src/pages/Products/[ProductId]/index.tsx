@@ -32,7 +32,7 @@ export default function ProductDetail({ product }: ProductPageProps) {
         <div className={prostyle.prodetailtable1}>
           {product?.Image?.map((image, index) => (
             <img
-              src={"http://localhost:1337" + (image?.formats?.thumbnail?.url || "")}
+              src={image?.formats?.thumbnail?.url}
               key={index}
               height="250px"
               width="150px"
