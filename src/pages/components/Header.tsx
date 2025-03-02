@@ -1,7 +1,29 @@
+"use client";
+
 import Link from 'next/link'
 import React from 'react'
+import { useRouter } from "next/navigation";
+import { useState } from 'react';
+import CartIcon from "../Cart/CartIcon";
 
 export default function Header() {
+
+  const [searchText, setSearchText] = useState("");
+  const router = useRouter();
+
+  const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(e.target.value);
+  };
+
+  const handleSearchClick = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // prevent form refresh
+
+    // Redirect to Products page with search query
+    if (searchText.trim()) {
+      router.push(`/Products?search=${encodeURIComponent(searchText.trim())}`);
+    }
+  };
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-light">
@@ -29,14 +51,22 @@ export default function Header() {
         <Link className="nav-link" href="/AboutUs">AboutUs</Link>
           
         </li>   
-        <li className="nav-item">
-        <Link className="nav-link" href="/Cart">Cart</Link>
-          
-        </li>   
+        <li>
+          <CartIcon />
+        </li>  
       </ul>
-      <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit">Search</button>
+      <form className="d-flex" role="search" onSubmit={handleSearchClick}>
+        <input
+          className="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          value={searchText}
+          onChange={onSearchChange}
+        />
+        <button className="btn btn-outline-success" type="submit">
+          Search
+        </button>
       </form>
     </div>
   </div>

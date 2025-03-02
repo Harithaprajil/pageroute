@@ -1,1 +1,0 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[401],{3081:function(n,_,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/components/GoToCartButton",function(){return o(4924)}])}},function(n){n.O(0,[924,774,888,179],function(){return n(n.s=3081)}),_N_E=n.O()}]);

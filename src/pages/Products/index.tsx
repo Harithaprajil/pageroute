@@ -5,10 +5,12 @@ import ProductFilter from "../components/Product-Filter/ProductFilter";
 import { GetServerSideProps } from "next";
 import { ProductService } from "../Services/Product service";
 
+
 interface Product {
   id: number;
   Category: string;
   Price: number;
+  search: string;
   attributes: {
     name: string;
   };
@@ -16,6 +18,7 @@ interface Product {
 
 interface ProductsPageProps {
   products: Product[];
+  search: string;
 }
 
 export default function Products({ products }: ProductsPageProps) {
@@ -47,6 +50,14 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
         (p: any) => p.Price <= Number(query.Price)
       );
     }
+    console.log("Query   "+query.search)
+
+    if (query?.search) {
+        const searchLower = query.search?.toString().toLowerCase();
+        filteredProducts = filteredProducts?.filter((p: any) => 
+          p.Title.toLowerCase().includes(searchLower)
+        );
+    }
 
     return {
       props: { products: filteredProducts },
@@ -55,4 +66,5 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     console.error("Error fetching products:", error);
     return { props: { products: [] } };
   }
+  
 };

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { createContext, useContext, useState, ReactNode } from 'react';
 
 // Define types for cart items
@@ -16,6 +16,7 @@ interface CartContextType {
     cart: CartItem[];
     addToCart: (item: CartItem) => void;
     removeFromCart:(id:number)=> void;
+    getCartQuantity: () => number;
 }
 
 // Create Context
@@ -49,8 +50,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
         });
     };
 
+    const getCartQuantity = () => {
+        return cart.reduce((total, item) => total + item.quantity, 0);
+    };
+
     return (
-        <CartContext.Provider value={{ cart, addToCart,removeFromCart }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, getCartQuantity }}>
             {children}
         </CartContext.Provider>
     );

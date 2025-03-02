@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./productcard.module.css";
 import Link from "next/link";
+import GoToCartButton from "../GoToCartButton";
+
 export default function Productcard(props: any) {
   var prod = props.product;
   console.log("data  " + prod);
@@ -27,6 +29,7 @@ export default function Productcard(props: any) {
           <div style={{ fontSize: "22px", color: "red" }}>${prod?.Price}</div>
         </div>
       </Link>
+      <div> {" "}<GoToCartButton product ={prod} /></div>        
     </div>
   );
 }

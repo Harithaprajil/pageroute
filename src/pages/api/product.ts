@@ -7,7 +7,7 @@ export default async function handler(
   if (req.method === "GET") {
     console.log("Hereeee");
     const response = await fetch(
-      "https://secure-creativity-35fee2e16d.strapiapp.com/api/Products?populate=*"
+      "http://localhost:1337/api/Products?populate=*"
     );
     const products = await response.json();
     res.status(200).json(products);
